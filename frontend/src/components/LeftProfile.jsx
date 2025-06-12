@@ -7,6 +7,7 @@ import {
   FaBehance,
   FaTwitter,
 } from "react-icons/fa";
+import profile from "../assets/profile-jc.jpg";
 import { IoMdCloudDownload } from "react-icons/io";
 
 const LeftProfile = () => {
@@ -35,7 +36,12 @@ const LeftProfile = () => {
     <div className="flex flex-col h-full w-[270px] bg-[#1E1E2F] text-white">
       {/* Top Section */}
       <section className="bg-foreground-1 h-[220px] flex flex-col items-center justify-center gap-4">
-        <div className="rounded-full bg-gray-600 w-[100px] h-[100px]" />
+        <div className="border border-white rounded-full">
+          <div className="rounded-full bg-gray-600 w-[100px] h-[100px]">
+            <img src={profile} alt="" className="rounded-full" />
+          </div>
+        </div>
+
         <div className="flex flex-col items-center">
           <h1 className="text-[14px] font-semibold">John Carlo A. Abanes</h1>
           <h1 className="text-[12px] text-secondary">Full Stack Developer</h1>
@@ -107,7 +113,7 @@ const LeftProfile = () => {
         <div className="space-y-2 text-xs">
           {otherSkills.map((tool, i) => (
             <div key={i} className="flex items-center gap-2">
-              <FaCheck className="text-yellow-400 text-[10px]" />
+              <FaCheck className="color-primary text-[10px]" />
               <span>{tool}</span>
             </div>
           ))}
@@ -116,7 +122,7 @@ const LeftProfile = () => {
         <hr />
 
         <div className="flex items-center justify-start gap-2">
-          <IoMdCloudDownload className="text-yellow-400 text-lg" />
+          <IoMdCloudDownload className="color-primary text-lg" />
           <h1 className="font-semibold text-xs">DOWNLOAD RESUME</h1>
         </div>
       </section>

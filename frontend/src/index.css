@@ -5,6 +5,7 @@
   --color-foreground-1: #2c2c3a;
   --color-foreground-2: #20202a;
   --color-text-secondary: #8c8cbe;
+  --color-primary: #facc15;
 }
 
 .bg-foreground-1 {
@@ -21,6 +22,10 @@
 
 .text-secondary {
   color: var(--color-text-secondary);
+}
+
+.color-primary {
+  color: var(--color-primary);
 }
 
 html,
