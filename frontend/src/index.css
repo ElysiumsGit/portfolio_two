@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
-:root{
-  --color-background: #1C1C28;
-  --color-foreground-1: #2C2C3A;
-  --color-foreground-2: #20202A;
+:root {
+  --color-background: #1c1c28;
+  --color-foreground-1: #2c2c3a;
+  --color-foreground-2: #20202a;
   --color-text-secondary: #8c8cbe;
 }
 
-.bg-foreground-1{
+.bg-foreground-1 {
   background-color: var(--color-foreground-1);
 }
 
-.bg-foreground-2{
+.bg-foreground-2 {
   background-color: var(--color-foreground-2);
 }
 
-.bg-background{
+.bg-background {
   background-color: var(--color-background);
 }
 
-.text-secondary{
+.text-secondary {
   color: var(--color-text-secondary);
 }
 
-html, body {
+html,
+body {
   background-color: var(--color-background);
   margin: 0;
-  padding: 0;
+  padding-top: 10;
   overflow: hidden;
   height: 100%;
 }
@@ -40,6 +41,6 @@ html, body {
   display: none; /* Chrome, Safari */
 }
 
-hr{
+hr {
   border: 1px #89898d solid;
 }
