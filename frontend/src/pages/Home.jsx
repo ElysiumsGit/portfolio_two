@@ -23,7 +23,7 @@ const Home = () => {
       <section className="bg-foreground-1 p-10">
         <div className="max-w-xl">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-            Discover my Amazing <br /> Art Space!
+            Discover my Amazing <br /> Development Space!
           </h1>
           <p className="text-lg font-mono mb-6">
             <span className="text-yellow-400">&lt;code&gt;</span> I build web and mobile application <span className="text-yellow-400">&lt;/code&gt;</span>
@@ -34,7 +34,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         {stats.map((stat, index) => (
           <div key={index}>
@@ -44,7 +43,6 @@ const Home = () => {
         ))}
       </section>
 
-      {/* Services Section */}
       <section>
         <h2 className="text-2xl font-bold mb-8">My Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
