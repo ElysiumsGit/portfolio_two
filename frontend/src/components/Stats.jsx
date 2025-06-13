@@ -5,7 +5,7 @@ const Stats = () => {
   const stats = [
     { value: 3, suffix: "+", label: "Years Experience" },
     { value: 10, suffix: "+", label: "Completed Projects" },
-    { value: 10, suffix: "+", label: "Satisfied Clients" },
+    { value: 11, suffix: "+", label: "Satisfied Clients" },
     { value: 20, suffix: "+", label: "Honors and Awards" },
   ];
 
