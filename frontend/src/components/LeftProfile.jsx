@@ -44,7 +44,7 @@ const LeftProfile = () => {
 
         <div className="flex flex-col items-center">
           <h1 className="text-[14px] font-semibold">John Carlo A. Abanes</h1>
-          <h1 className="text-[12px] text-secondary">Full Stack Developer</h1>
+          <h1 className="text-[12px] text-secondary">Full-Stack Developer</h1>
         </div>
       </section>
 
