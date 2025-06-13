@@ -5,8 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {
-    host: true, // or '0.0.0.0'
-    port: 5173, // default Vite port, can be changed
-  },
+  base: process.env.VITE_BASE_PATH || "/portfolio_two/"
+  
 });
