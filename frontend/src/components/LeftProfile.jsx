@@ -129,11 +129,19 @@ const LeftProfile = () => {
 
       {/* Bottom Section */}
       <section className="bg-foreground-1 h-[40px] flex items-center justify-between gap-4 text-gray-400 text-lg px-6">
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
         <FaLinkedin size={14} />
+      </a>
+      <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
         <FaGithub size={14} />
+      </a>
+      <a href="https://www.behance.net/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
         <FaBehance size={14} />
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
         <FaTwitter size={14} />
-      </section>
+      </a>
+    </section>
     </div>
   );
 };
