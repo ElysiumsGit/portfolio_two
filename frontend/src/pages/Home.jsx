@@ -6,7 +6,7 @@ import Stats from "../components/Stats";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 import WorkExperience from "../components/WorkExperience";
-// import GitHubSection from "../components/GithubSection";
+import GitHubSection from "../components/GithubSection";
 
 // Animation variant
 const fadeInUp = {
@@ -72,17 +72,17 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <Contact />
+        <GitHubSection />
       </motion.div>
 
-      {/* <motion.div
+      <motion.div
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <GitHubSection />
-      </motion.div> */}
+        <Contact />
+      </motion.div>
     </div>
   );
 };
