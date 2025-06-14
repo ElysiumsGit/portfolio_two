@@ -3,6 +3,7 @@ import GitHubCalendar from 'react-github-calendar';
 const GithubSection = ({ username, selectedYear, onYearChange, loading }) => {
   return (
     <div className="bg-foreground-1 p-6 shadow-md rounded-lg">
+      <h2 className="text-2xl font-bold mb-4">{username}</h2>
       <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-4">
         <div className="flex md:flex-col gap-2">
           {[2024, 2025].map((year) => (

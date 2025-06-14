@@ -4,6 +4,7 @@ import LeftProfile from "./components/LeftProfile";
 import Home from "./pages/Home";
 import { FiMenu, FiX } from "react-icons/fi";
 import UseResponsive from "./components/UseResponsive";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,7 +74,7 @@ function App() {
               />
             )}
           </div>
-          <Home />
+          <Outlet/>
           <Footer />
         </div>
       </div>

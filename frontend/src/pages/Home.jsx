@@ -86,9 +86,14 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <h2 className="text-2xl font-bold mb-8">My Contributions</h2>
+        <h2 className="text-2xl font-bold mb-4">My Contributions</h2>
+
+        <p className="text-sm text-gray-400 mb-6">
+          Note: I use two GitHub accounts — <span className="font-medium text-white">ElysiumsGit</span> for professional and collaborative work projects and <span className="font-medium text-white">Coding-Elysium</span> for personal and learning work.
+        </p>
+
         <section className="flex flex-col gap-6">
-           <GithubSection
+          <GithubSection
             username="ElysiumsGit"
             selectedYear={selectYearOne}
             onYearChange={handleYearChange(setSelectYearOne, setLoadingOne, selectYearOne)}
