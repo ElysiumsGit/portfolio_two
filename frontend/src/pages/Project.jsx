@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import StoreWatch from "../assets/storeWatch.png";
 
 const services = [
   {
@@ -16,19 +17,22 @@ const services = [
       "JWT (Authentication)",
       "Vercel (Deployment)",
     ],
+    results: [
+    StoreWatch, 
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "Store Watch",
-    image: "",
+    image: StoreWatch,
     description:
       "A store monitoring system that tracks customer activity, sales metrics, and product engagement using visual analytics and reports.",
     stack: [
-      "Vue.js (Frontend)",
-      "Vuetify (UI Framework)",
-      "Laravel (Backend)",
-      "MySQL (Database)",
-      "Chart.js (Visualization)",
-      "AWS EC2 (Hosting)",
+      "Dart (Frontend)",
+      "Flutter (UI Framework)",
+      "ExpressJS (Backend)",
+      "Firebase (Database)",
     ],
   },
   {
@@ -43,6 +47,11 @@ const services = [
       "Framer Motion",
       "Tailwind CSS",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "Bioverse",
@@ -57,6 +66,11 @@ const services = [
       "Auth.js (Authentication)",
       "Vercel",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "Document Repository",
@@ -71,6 +85,11 @@ const services = [
       "JWT",
       "AWS S3 (File Storage)",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "Popina",
@@ -84,6 +103,11 @@ const services = [
       "Node.js",
       "Cloud Functions",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "HR Haven Mobile",
@@ -98,6 +122,11 @@ const services = [
       "JWT",
       "Google Cloud Run",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
   {
     title: "Portfolio",
@@ -112,6 +141,11 @@ const services = [
       "GitHub API",
       "Vercel",
     ],
+    results: [
+    StoreWatch, // example image — you can reuse or import others
+    StoreWatch,
+    StoreWatch,
+  ],
   },
 ];
 
@@ -163,21 +197,31 @@ const Project = () => {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-white">Result</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm">
-            Placeholder 1
-          </div>
-
-          <div className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm">
-            Placeholder 2
-          </div>
-
-          <div className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm">
-            Placeholder 3
-          </div>
-
-          <div className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm">
-            Placeholder 4
-          </div>
+          {project.results && project.results.length > 0 ? (
+            project.results.map((img, index) => (
+              <div
+                key={index}
+                className="bg-gray-700 h-64 rounded-lg overflow-hidden flex items-center justify-center"
+              >
+                <img
+                  src={img}
+                  alt={`Result ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))
+          ) : (
+            <>
+              {[1, 2, 3, 4].map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm"
+                >
+                  Placeholder {index + 1}
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </section>
     </div>
