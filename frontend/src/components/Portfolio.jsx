@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Portfolio = () => {
   const services = [
@@ -28,6 +29,10 @@ const Portfolio = () => {
     },
     {
       title: "HR Haven Mobile",
+      image: "",
+    },
+     {
+      title: "Portfolio",
       image: "",
     },
   ];
@@ -60,9 +65,11 @@ const Portfolio = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Elit
                 sequi commodi dignissimos.
               </p>
-              <button className="text-yellow-400 font-semibold text-sm hover:underline">
-                READ MORE &gt;
-              </button>
+              <Link to={`/project/${index}`}>
+                <button className="text-yellow-400 font-semibold text-sm hover:underline">
+                  READ MORE &gt;
+                </button>
+              </Link>
             </div>
           </div>
         ))}
