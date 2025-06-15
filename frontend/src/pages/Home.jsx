@@ -18,9 +18,7 @@ const fadeInUp = {
   },
 };
 
-
 const Home = () => {
-
   const [selectYearOne, setSelectYearOne] = useState(2025);
   const [selectYearTwo, setSelectYearTwo] = useState(2025);
   const [loadingOne, setLoadingOne] = useState(false);
@@ -89,20 +87,32 @@ const Home = () => {
         <h2 className="text-2xl font-bold mb-4">My Contributions</h2>
 
         <p className="text-sm text-gray-400 mb-6">
-          Note: I use two GitHub accounts — <span className="font-medium text-white">ElysiumsGit</span> for professional and collaborative work projects and <span className="font-medium text-white">Coding-Elysium</span> for personal and learning work.
+          Note: I use two GitHub accounts —{" "}
+          <span className="font-medium text-white">ElysiumsGit</span> for
+          professional and collaborative work projects and{" "}
+          <span className="font-medium text-white">Coding-Elysium</span> for
+          personal and learning work.
         </p>
 
         <section className="flex flex-col gap-6">
           <GithubSection
             username="ElysiumsGit"
             selectedYear={selectYearOne}
-            onYearChange={handleYearChange(setSelectYearOne, setLoadingOne, selectYearOne)}
+            onYearChange={handleYearChange(
+              setSelectYearOne,
+              setLoadingOne,
+              selectYearOne
+            )}
             loading={loadingOne}
           />
           <GithubSection
             username="Coding-Elysium"
             selectedYear={selectYearTwo}
-            onYearChange={handleYearChange(setSelectYearTwo, setLoadingTwo, selectYearTwo)}
+            onYearChange={handleYearChange(
+              setSelectYearTwo,
+              setLoadingTwo,
+              selectYearTwo
+            )}
             loading={loadingTwo}
           />
         </section>
