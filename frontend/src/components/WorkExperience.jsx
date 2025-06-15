@@ -1,32 +1,35 @@
-import React from 'react';
+import React from "react";
 
 const workExperienceData = [
   {
-    title: 'Praetorian Intelligence Incorporation',
-    role: 'Fullstack Developer',
-    date: 'Jan 2024 - Present',
-    description:"Developing and maintaining scalable web applications, mobile application and software using modern technologies across the full stack. Collaborating with cross-functional teams to deliver efficient and user-friendly solutions.",
+    title: "Praetorian Intelligence Incorporation",
+    role: "Fullstack Developer",
+    date: "Jan 2024 - Present",
+    description:
+      "Developing and maintaining scalable web applications, mobile application and software using modern technologies across the full stack. Collaborating with cross-functional teams to deliver efficient and user-friendly solutions.",
   },
   {
-    title: 'Freelance',
-    role: 'Fullstack Developer',
-    date: 'Present',
-    description:"Designed and built multiple websites, web apps, and custom software solutions for various clients. Gained hands-on experience in client communication, project planning, and full-cycle development.",
+    title: "Freelance",
+    role: "Fullstack Developer",
+    date: "Present",
+    description:
+      "Designed and built multiple websites, web apps, and custom software solutions for various clients. Gained hands-on experience in client communication, project planning, and full-cycle development.",
   },
   {
-    title: 'Family Merchant Development Corporation',
-    role: 'Admin Assistant',
-    date: 'Present',
-    description: "Provided administrative and technical support to ensure smooth office operations. Handled data entry, document management, and assisted with IT-related tasks within the company.",
+    title: "Family Merchant Development Corporation",
+    role: "Admin Assistant",
+    date: "2023",
+    description:
+      "Provided administrative and technical support to ensure smooth office operations. Handled data entry, document management, and assisted with IT-related tasks within the company.",
   },
   {
-    title: 'AMA Daet',
-    role: 'Technical Assistant',
-    date: 'Present',
-    description: "Supported faculty and students with technical issues, maintained computer laboratories, and assisted in managing school systems and digital resources.",
+    title: "AMA Daet",
+    role: "Technical Assistant",
+    date: "2018",
+    description:
+      "Supported faculty and students with technical issues, maintained computer laboratories, and assisted in managing school systems and digital resources.",
   },
 ];
-
 
 const WorkExperience = () => {
   return (

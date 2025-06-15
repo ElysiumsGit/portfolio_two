@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import StoreWatch from "../assets/storeWatch.png";
+import adminStore from "../assets/admin.png";
 
 const services = [
   {
@@ -9,19 +10,18 @@ const services = [
     description:
       "An integrated enterprise management platform that streamlines operations across finance, HR, inventory, and analytics with real-time dashboards.",
     stack: [
-      "React (Frontend)",
-      "Tailwind CSS (Styling)",
-      "Node.js (Backend)",
-      "Express.js (API Layer)",
-      "MongoDB (Database)",
-      "JWT (Authentication)",
-      "Vercel (Deployment)",
+      "Dart (Frontend)",
+      "Flutter (UI Framework)",
+      "NodeJS (Backend)",
+      "Typescript (Backend Language)",
+      "Firebase (Database)",
     ],
     results: [
-    StoreWatch, 
-    StoreWatch,
-    StoreWatch,
-  ],
+      { type: "web", image: adminStore },
+      { type: "web", image: adminStore },
+      { type: "web", image: adminStore },
+      { type: "web", image: adminStore },
+    ],
   },
   {
     title: "Store Watch",
@@ -31,8 +31,16 @@ const services = [
     stack: [
       "Dart (Frontend)",
       "Flutter (UI Framework)",
-      "ExpressJS (Backend)",
+      "NodeJS (Backend)",
+      "ExpressJS (Backend Framework)",
       "Firebase (Database)",
+    ],
+    results: [
+      { type: "mobile", image: adminStore },
+      { type: "mobile", image: adminStore },
+      { type: "mobile", image: adminStore },
+      { type: "mobile", image: adminStore },
+      { type: "mobile", image: adminStore },
     ],
   },
   {
@@ -41,17 +49,15 @@ const services = [
     description:
       "An interactive virtual cooking platform for students to practice culinary procedures in a simulated lab environment.",
     stack: [
-      "React",
-      "Three.js (3D Visualization)",
-      "Firebase (Auth & Storage)",
-      "Framer Motion",
-      "Tailwind CSS",
+      "React (Frontend Admin)",
+      "MongoDB (Database)",
+      "Dart (Frontend Client)",
+      "Flutter (UI Framework Client)",
+      "Material UI",
+      "NodeJS (Backend)",
+      "ExpressJS (Backend Framework)",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Bioverse",
@@ -59,18 +65,13 @@ const services = [
     description:
       "A collaborative biology research and journal platform for students and scientists to publish, peer-review, and explore biological discoveries.",
     stack: [
-      "Next.js",
-      "PostgreSQL",
-      "Prisma ORM",
-      "Tailwind CSS",
-      "Auth.js (Authentication)",
-      "Vercel",
+      "React (Frontend Admin)",
+      "MongoDB (Database)",
+      "Material UI",
+      "PHP (Backend)",
+      "ThreeJS (Render 3d object)",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Document Repository",
@@ -78,18 +79,12 @@ const services = [
     description:
       "A secure digital archive system that allows users to upload, manage, and share official documents with version tracking.",
     stack: [
-      "Angular",
-      "Spring Boot",
-      "MongoDB",
-      "Docker",
-      "JWT",
-      "AWS S3 (File Storage)",
+      "MongoDB (Database)",
+      "ExpressJS (Backend Framework)",
+      "React (Frontend)",
+      "NodeJS (Backend)",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Popina",
@@ -97,17 +92,13 @@ const services = [
     description:
       "A social media platform focused on short-form restaurant reviews, dish ratings, and interactive food content.",
     stack: [
-      "Flutter (Mobile)",
-      "Firebase",
-      "Google Maps API",
-      "Node.js",
-      "Cloud Functions",
+      "Flutter (Framework)",
+      "Dart (Frontend)",
+      "MySQL",
+      "NodeJS (Backend)",
+      "ExpressJS (Backend Framework)",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "HR Haven Mobile",
@@ -115,18 +106,13 @@ const services = [
     description:
       "A mobile-first HR management app for employee tracking, leave applications, timesheets, and payroll reports.",
     stack: [
-      "React Native",
-      "Expo",
-      "Django REST Framework",
-      "SQLite (Local DB)",
-      "JWT",
-      "Google Cloud Run",
+      "Flutter (Framework)",
+      "Dart (Frontend)",
+      "MySQL",
+      "NodeJS (Backend)",
+      "ExpressJS (Backend Framework)",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Portfolio",
@@ -141,30 +127,43 @@ const services = [
       "GitHub API",
       "Vercel",
     ],
-    results: [
-    StoreWatch, // example image — you can reuse or import others
-    StoreWatch,
-    StoreWatch,
-  ],
+    results: [{ type: "mobile", image: adminStore }],
   },
 ];
-
-
 
 const Project = () => {
   const { id } = useParams();
   const project = services[parseInt(id)];
 
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+  };
+
   if (!project) {
     return <div className="text-white">Project not found.</div>;
   }
+
+  const isWeb = project.results?.[0]?.type === "web";
 
   return (
     <div className="text-white flex flex-col gap-8">
       <section>
         <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
         {project.image ? (
-          <img src={project.image} alt={project.title} className="w-full h-70 object-cover mb-4" />
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-70 object-cover mb-4"
+          />
         ) : (
           <div className="w-full h-96 bg-gray-700 flex items-center justify-center text-gray-400 text-sm mb-4">
             No Image Available
@@ -196,23 +195,38 @@ const Project = () => {
 
       <section>
         <h2 className="text-2xl font-bold mb-4 text-white">Result</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          className={`grid gap-6 ${
+            isWeb
+              ? "grid-cols-1 sm:grid-cols-2"
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
           {project.results && project.results.length > 0 ? (
-            project.results.map((img, index) => (
+            project.results.map((result, index) => (
               <div
                 key={index}
-                className="bg-gray-700 h-64 rounded-lg overflow-hidden flex items-center justify-center"
+                onClick={() => handleImageClick(result.image)}
+                className={`rounded-2xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${
+                  result.type === "mobile" && "border"
+                } border-gray-600 ${
+                  result.type === "mobile"
+                    ? "w-[250px] h-[500px] mx-auto bg-black p-2 flex items-center justify-center"
+                    : "w-full h-[250px]"
+                }`}
               >
                 <img
-                  src={img}
+                  src={result.image}
                   alt={`Result ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className={`object-cover ${
+                    result.type === "mobile" ? "h-full w-auto" : "w-full h-full"
+                  } rounded`}
                 />
               </div>
             ))
           ) : (
             <>
-              {[1, 2, 3, 4].map((_, index) => (
+              {[1, 2, 3].map((_, index) => (
                 <div
                   key={index}
                   className="bg-gray-700 h-64 rounded-lg flex items-center justify-center text-gray-400 text-sm"
@@ -224,6 +238,20 @@ const Project = () => {
           )}
         </div>
       </section>
+
+      {/* Modal for full image view */}
+      {showModal && selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={handleCloseModal}
+        >
+          <img
+            src={selectedImage}
+            alt="Enlarged"
+            className="max-w-full max-h-full rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 };

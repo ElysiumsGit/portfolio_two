@@ -9,32 +9,59 @@ import {
 } from "react-icons/fa";
 import profile from "../assets/profile-jc.jpg";
 import { IoMdCloudDownload } from "react-icons/io";
+import cplusplus from "../assets/logos/cplusplus.svg";
+import css from "../assets/logos/css.svg";
+import electron from "../assets/logos/electron.svg";
+import figma from "../assets/logos/figma.svg";
+import firebase from "../assets/logos/firebase.svg";
+import flutter from "../assets/logos/flutter.svg";
+import github from "../assets/logos/github.svg";
+import html from "../assets/logos/html.svg";
+import java from "../assets/logos/java.svg";
+import javascript from "../assets/logos/javascript.svg";
+import mongodb from "../assets/logos/mongodb.svg";
+import mysql from "../assets/logos/mysql.svg";
+import nodejs from "../assets/logos/nodejs.svg";
+import php from "../assets/logos/php.svg";
+import postman from "../assets/logos/postman.svg";
+import react from "../assets/logos/react.svg";
+import tailwindcss from "../assets/logos/tailwindcss.svg";
+import typescript from "../assets/logos/typescript.svg";
+import TechStack from "./TechStack";
 
 const LeftProfile = () => {
-  const languages = [
-    { label: "Tagalog", percent: 100 },
-    { label: "English", percent: 90 },
-    { label: "Bicol", percent: 80 },
-  ];
-
-  const skills = [
-    { label: "React", percent: 90 },
-    { label: "Node", percent: 95 },
-    { label: "JavaScript", percent: 75 },
-    { label: "Dart", percent: 65 },
-    { label: "Typescript", percent: 85 },
-  ];
-
   const otherSkills = [
-    "Bootstrap, Materialize",
-    "Stylus, Sass, Less",
-    "Gulp, Webpack, Grunt",
-    "GIT knowledge",
+    "Firebase, Postman, REST API", // Platforms & testing tools
+    "GIT knowledge, GitHub", // Version control
+    "Electron, Flutter", // Cross-platform frameworks
+    "MySQL, MongoDB", // Databases
+    "PHP, Java, C++", // Backend & general-purpose languages
+    "Figma, Photoshop", // Design tools
+  ];
+
+  const techStack = [
+    { name: "C++", image: cplusplus },
+    { name: "CSS", image: css },
+    { name: "Electron", image: electron },
+    { name: "Figma", image: figma },
+    { name: "Firebase", image: firebase },
+    { name: "Flutter", image: flutter },
+    { name: "GitHub", image: github },
+    { name: "HTML", image: html },
+    { name: "Java", image: java },
+    { name: "JavaScript", image: javascript },
+    { name: "MongoDB", image: mongodb },
+    { name: "MySQL", image: mysql },
+    { name: "Node.js", image: nodejs },
+    { name: "PHP", image: php },
+    { name: "Postman", image: postman },
+    { name: "React", image: react },
+    { name: "Tailwind CSS", image: tailwindcss },
+    { name: "TypeScript", image: typescript },
   ];
 
   return (
     <div className="flex flex-col h-full w-[270px] bg-[#1E1E2F] text-white">
-      {/* Top Section */}
       <section className="bg-foreground-1 h-[220px] flex flex-col items-center justify-center gap-4">
         <div className="border border-white rounded-full">
           <div className="rounded-full bg-gray-600 w-[100px] h-[100px]">
@@ -65,50 +92,11 @@ const LeftProfile = () => {
 
         <hr />
 
-        <div className="flex justify-between px-2">
-          {languages.map((lang, i) => (
-            <div key={i} className="flex flex-col items-center text-xs">
-              <div className="relative w-[50px] h-[50px]">
-                <Circle
-                  percent={lang.percent}
-                  strokeWidth={8}
-                  strokeColor="#facc15"
-                  trailColor="#2e2e3e"
-                  className="w-full h-full"
-                  style={{
-                    path: { transition: "none" },
-                    trail: { transition: "none" },
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center text-white text-[10px] font-bold">
-                  {lang.percent}%
-                </div>
-              </div>
-              <span className="mt-2">{lang.label}</span>
-            </div>
+        <div className="flex flex-wrap gap-4 justify-center">
+          {techStack.map((tech, index) => (
+            <TechStack key={index} tech={tech} />
           ))}
         </div>
-
-        <hr />
-
-        <div className="space-y-2 text-xs">
-          {skills.map((skill, i) => (
-            <div key={i}>
-              <div className="flex justify-between">
-                <span>{skill.label}</span>
-                <span>{skill.percent}%</span>
-              </div>
-              <div className="w-full bg-gray-800 h-1 rounded">
-                <div
-                  className="bg-yellow-400 h-1 rounded"
-                  style={{ width: `${skill.percent}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <hr />
 
         <div className="space-y-2 text-xs">
           {otherSkills.map((tool, i) => (
@@ -129,19 +117,39 @@ const LeftProfile = () => {
 
       {/* Bottom Section */}
       <section className="bg-foreground-1 h-[40px] flex items-center justify-between gap-4 text-gray-400 text-lg px-6">
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
-        <FaLinkedin size={14} />
-      </a>
-      <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
-        <FaGithub size={14} />
-      </a>
-      <a href="https://www.behance.net/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
-        <FaBehance size={14} />
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
-        <FaTwitter size={14} />
-      </a>
-    </section>
+        <a
+          href="https://www.linkedin.com/in/john-carlo-abanes-316217357/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors duration-300"
+        >
+          <FaLinkedin size={14} />
+        </a>
+        <a
+          href="https://github.com/ElysiumsGit"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors duration-300"
+        >
+          <FaGithub size={14} />
+        </a>
+        <a
+          href="https://www.behance.net/yourprofile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors duration-300"
+        >
+          <FaBehance size={14} />
+        </a>
+        <a
+          href="https://x.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors duration-300"
+        >
+          <FaTwitter size={14} />
+        </a>
+      </section>
     </div>
   );
 };
