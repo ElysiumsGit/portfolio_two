@@ -40,41 +40,9 @@ const Home = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <Hero />
-      </motion.div>
-
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
         <Stats />
-      </motion.div>
-
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
         <Services />
-      </motion.div>
-
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
         <Portfolio />
-      </motion.div>
-
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
         <WorkExperience />
       </motion.div>
 
@@ -87,7 +55,7 @@ const Home = () => {
         <h2 className="text-2xl font-bold mb-4">My Contributions</h2>
 
         <p className="text-sm text-gray-400 mb-6">
-          Note: I use two GitHub accounts —{" "}
+          Note: I use two GitHubs accounts —{" "}
           <span className="font-medium text-white">ElysiumsGit</span> for
           professional and collaborative work projects and{" "}
           <span className="font-medium text-white">Coding-Elysium</span> for
