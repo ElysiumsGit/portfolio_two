@@ -27,7 +27,10 @@ import postman from "../assets/logos/postman.svg";
 import react from "../assets/logos/react.svg";
 import tailwindcss from "../assets/logos/tailwindcss.svg";
 import typescript from "../assets/logos/typescript.svg";
+import express from "../assets/logos/express.svg";
+import dart from "../assets/logos/dart.svg";
 import TechStack from "./TechStack";
+import resume from "../resume/ABANES_JOHN_CARLO_A.pdf";
 
 const LeftProfile = () => {
   const otherSkills = [
@@ -58,6 +61,8 @@ const LeftProfile = () => {
     { name: "React", image: react },
     { name: "Tailwind CSS", image: tailwindcss },
     { name: "TypeScript", image: typescript },
+    { name: "Express", image: express },
+    { name: "Dart", image: dart },
   ];
 
   return (
@@ -109,10 +114,14 @@ const LeftProfile = () => {
 
         <hr />
 
-        <div className="flex items-center justify-start gap-2">
+        <a
+          href={resume}
+          download
+          className="flex items-center justify-start gap-2 hover:underline hover:text-primary transition-colors duration-300"
+        >
           <IoMdCloudDownload className="color-primary text-lg" />
           <h1 className="font-semibold text-xs">DOWNLOAD RESUME</h1>
-        </div>
+        </a>
       </section>
 
       {/* Bottom Section */}

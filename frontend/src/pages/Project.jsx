@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import StoreWatch from "../assets/storeWatch.png";
-import adminStore from "../assets/admin.png";
+import StoreWatch from "../assets/store/storeWatch.png";
+import adminStore from "../assets/store/admin.png";
+import loginStore from "../assets/store/loginStore.png";
+import landingStore from "../assets/store/landingStore.png";
+import dashboardBusiness from "../assets/businessSuite/dashboard.png";
+import employeeList from "../assets/businessSuite/employeeList.png";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const services = [
   {
@@ -17,10 +23,8 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
-      { type: "web", image: adminStore },
-      { type: "web", image: adminStore },
-      { type: "web", image: adminStore },
-      { type: "web", image: adminStore },
+      { type: "web", image: dashboardBusiness },
+      { type: "web", image: employeeList },
     ],
   },
   {
@@ -36,10 +40,8 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
-      { type: "mobile", image: adminStore },
-      { type: "mobile", image: adminStore },
-      { type: "mobile", image: adminStore },
-      { type: "mobile", image: adminStore },
+      { type: "mobile", image: loginStore },
+      { type: "mobile", image: landingStore },
       { type: "mobile", image: adminStore },
     ],
   },
@@ -135,17 +137,29 @@ const Project = () => {
   const { id } = useParams();
   const project = services[parseInt(id)];
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
+  const handleImageClick = (index) => {
+    setSelectedIndex(index);
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % project.results.length);
+  };
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setSelectedIndex(
+      (prev) => (prev - 1 + project.results.length) % project.results.length
+    );
   };
 
   if (!project) {
@@ -206,12 +220,12 @@ const Project = () => {
             project.results.map((result, index) => (
               <div
                 key={index}
-                onClick={() => handleImageClick(result.image)}
-                className={`rounded-2xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${
+                onClick={() => handleImageClick(index)}
+                className={`overflow-hidden shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${
                   result.type === "mobile" && "border"
                 } border-gray-600 ${
                   result.type === "mobile"
-                    ? "w-[250px] h-[500px] mx-auto bg-black p-2 flex items-center justify-center"
+                    ? "w-[250px] h-[500px] mx-auto rounded-2xl bg-black p-2 flex items-center justify-center"
                     : "w-full h-[250px]"
                 }`}
               >
@@ -239,17 +253,34 @@ const Project = () => {
         </div>
       </section>
 
-      {/* Modal for full image view */}
-      {showModal && selectedImage && (
+      {showModal && selectedIndex !== null && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={handleCloseModal}
         >
-          <img
-            src={selectedImage}
-            alt="Enlarged"
-            className="max-w-full max-h-full rounded-lg shadow-lg"
-          />
+          <div className="relative max-w-[90%] flex items-center justify-between">
+            <img
+              src={project.results[selectedIndex].image}
+              alt="Enlarged"
+              className="rounded-lg shadow-lg"
+            />
+            {project.results.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-4 bg-black/50 px-4 py-4 rounded hover:bg-black cursor-pointer"
+                >
+                  <IoIosArrowBack/>
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="absolute right-4 bg-black/50 px-4 py-4 rounded hover:bg-black cursor-pointer"
+                >
+                  <IoIosArrowForward/>
+                </button>
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>
