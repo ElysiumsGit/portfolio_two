@@ -33,18 +33,11 @@ const Home = () => {
 
   return (
     <div className="relative w-full overflow-hidden text-white flex flex-col gap-16">
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <Hero />
-        <Stats />
-        <Services />
-        <Portfolio />
-        <WorkExperience />
-      </motion.div>
+      <Hero />
+      <Stats />
+      <Services />
+      <Portfolio />
+      <WorkExperience />
 
       <motion.div
         variants={fadeInUp}
