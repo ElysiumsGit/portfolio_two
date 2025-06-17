@@ -23,8 +23,6 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
-      { type: "web", image: dashboardBusiness },
-      { type: "web", image: employeeList },
     ],
   },
   {
@@ -40,9 +38,6 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
-      { type: "mobile", image: loginStore },
-      { type: "mobile", image: landingStore },
-      { type: "mobile", image: adminStore },
     ],
   },
   {
@@ -59,7 +54,7 @@ const services = [
       "NodeJS (Backend)",
       "ExpressJS (Backend Framework)",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    results: [],
   },
   {
     title: "Bioverse",
@@ -73,7 +68,7 @@ const services = [
       "PHP (Backend)",
       "ThreeJS (Render 3d object)",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    results: [],
   },
   {
     title: "Document Repository",
@@ -86,7 +81,7 @@ const services = [
       "React (Frontend)",
       "NodeJS (Backend)",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    results: [],
   },
   {
     title: "Popina",
@@ -100,7 +95,7 @@ const services = [
       "NodeJS (Backend)",
       "ExpressJS (Backend Framework)",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    results: [],
   },
   {
     title: "HR Haven Mobile",
@@ -114,7 +109,8 @@ const services = [
       "NodeJS (Backend)",
       "ExpressJS (Backend Framework)",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    result: [],
+    // results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Portfolio",
@@ -129,7 +125,8 @@ const services = [
       "GitHub API",
       "Vercel",
     ],
-    results: [{ type: "mobile", image: adminStore }],
+    result: [],
+    // results: [{ type: "mobile", image: adminStore }],
   },
 ];
 
