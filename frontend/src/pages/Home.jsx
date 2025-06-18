@@ -8,7 +8,6 @@ import Contact from "../components/Contact";
 import WorkExperience from "../components/WorkExperience";
 import GithubSection from "../components/GithubSection";
 
-// Animation variant
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: {
