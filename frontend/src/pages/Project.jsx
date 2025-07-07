@@ -8,6 +8,15 @@ import dashboardBusiness from "../assets/businessSuite/dashboard.png";
 import employeeList from "../assets/businessSuite/employeeList.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import VirtualLabDashboard from "../assets/virtualLab/dashboard.png";
+import VirtualLabAdminList from "../assets/virtualLab/adminList.png";
+import VirtualLabLogin from "../assets/virtualLab/login.png";
+import digestiveWorkSheet1 from "../assets/bioverse/digestive.png";
+import digestiveWorkSheet2 from "../assets/bioverse/digestive2.png";
+import digestiveWorkSheet3 from "../assets/bioverse/digestive3.png";
+import threeJsModel from "../assets/bioverse/threejsModel.png";
+import bioverseHome from "../assets/bioverse/bioverseHome.png";
+
 
 const services = [
   {
@@ -41,10 +50,10 @@ const services = [
     ],
   },
   {
-    title: "Virtual Lab Cookery",
+    title: "Virtual Lab Cookery Admin Side",
     image: "",
     description:
-      "An interactive virtual cooking platform for students to practice culinary procedures in a simulated lab environment.",
+      "A cross-platform virtual cooking platform where students use the mobile app to simulate culinary procedures and submit their outputs, including tools used, to the admin panel. On the web interface, admins review and score student submissions in real time, creating an interactive and educational feedback loop.",
     stack: [
       "React (Frontend Admin)",
       "MongoDB (Database)",
@@ -53,8 +62,15 @@ const services = [
       "Material UI",
       "NodeJS (Backend)",
       "ExpressJS (Backend Framework)",
+      "Zustand (State Management in React)",
+      "OBX (State Management in Flutter)"
     ],
-    results: [],
+    results: [
+      { type: "web", image: VirtualLabLogin },
+      { type: "web", image: VirtualLabDashboard },
+      { type: "web", image: VirtualLabAdminList },
+      { type: "web", image: VirtualLabAdminList },
+    ],
   },
   {
     title: "Bioverse",
@@ -68,7 +84,13 @@ const services = [
       "PHP (Backend)",
       "ThreeJS (Render 3d object)",
     ],
-    results: [],
+    results: [
+      { type: "web", image: bioverseHome },
+      { type: "web", image: digestiveWorkSheet1 },
+      { type: "web", image: digestiveWorkSheet2 },
+      { type: "web", image: digestiveWorkSheet3 },
+      { type: "web", image: threeJsModel },
+    ],
   },
   {
     title: "Document Repository",
