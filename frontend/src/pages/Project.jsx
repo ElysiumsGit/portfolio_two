@@ -32,6 +32,8 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
+      { type: "web", image: dashboardBusiness, visibility: "private" },
+      { type: "web", image: employeeList, visibility: "private" },
     ],
   },
   {
@@ -47,6 +49,9 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
+      { type: "mobile", image: landingStore, visibility: "private" },
+      { type: "mobile", image: loginStore, visibility: "private" },
+      { type: "mobile", image: adminStore, visibility: "private" },
     ],
   },
   {
@@ -66,10 +71,10 @@ const services = [
       "OBX (State Management in Flutter)"
     ],
     results: [
-      { type: "web", image: VirtualLabLogin },
-      { type: "web", image: VirtualLabDashboard },
-      { type: "web", image: VirtualLabAdminList },
-      { type: "web", image: VirtualLabAdminList },
+      { type: "web", image: VirtualLabLogin, visibility: "public" },
+      { type: "web", image: VirtualLabDashboard, visibility: "public"  },
+      { type: "web", image: VirtualLabAdminList, visibility: "public"  },
+      { type: "web", image: VirtualLabAdminList, visibility: "public"  },
     ],
   },
   {
@@ -85,11 +90,11 @@ const services = [
       "ThreeJS (Render 3d object)",
     ],
     results: [
-      { type: "web", image: bioverseHome },
-      { type: "web", image: digestiveWorkSheet1 },
-      { type: "web", image: digestiveWorkSheet2 },
-      { type: "web", image: digestiveWorkSheet3 },
-      { type: "web", image: threeJsModel },
+      { type: "web", image: bioverseHome, visibility: "public"  },
+      { type: "web", image: digestiveWorkSheet1, visibility: "public"  },
+      { type: "web", image: digestiveWorkSheet2, visibility: "public"  },
+      { type: "web", image: digestiveWorkSheet3, visibility: "public"  },
+      { type: "web", image: threeJsModel, visibility: "public"  },
     ],
   },
   {
@@ -132,7 +137,6 @@ const services = [
       "ExpressJS (Backend Framework)",
     ],
     result: [],
-    // results: [{ type: "mobile", image: adminStore }],
   },
   {
     title: "Portfolio",
@@ -148,7 +152,6 @@ const services = [
       "Vercel",
     ],
     result: [],
-    // results: [{ type: "mobile", image: adminStore }],
   },
 ];
 
@@ -160,8 +163,11 @@ const Project = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleImageClick = (index) => {
-    setSelectedIndex(index);
-    setShowModal(true);
+    const isPrivate = project.results[index].visibility === "private";
+    if (!isPrivate) {
+      setSelectedIndex(index);
+      setShowModal(true);
+    }
   };
 
   const handleCloseModal = () => {
@@ -236,27 +242,37 @@ const Project = () => {
           }`}
         >
           {project.results && project.results.length > 0 ? (
-            project.results.map((result, index) => (
-              <div
-                key={index}
-                onClick={() => handleImageClick(index)}
-                className={`overflow-hidden shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${
-                  result.type === "mobile" && "border"
-                } border-gray-600 ${
-                  result.type === "mobile"
-                    ? "w-[250px] h-[500px] mx-auto rounded-2xl bg-black p-2 flex items-center justify-center"
-                    : "w-full h-[250px]"
-                }`}
-              >
-                <img
-                  src={result.image}
-                  alt={`Result ${index + 1}`}
-                  className={`object-cover ${
-                    result.type === "mobile" ? "h-full w-auto" : "w-full h-full"
-                  } rounded`}
-                />
-              </div>
-            ))
+            project.results.map((result, index) => {
+              const isPrivate = result.visibility === "private";
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleImageClick(index)}
+                  className={`overflow-hidden shadow-lg transition-transform transform ${
+                    isPrivate ? "cursor-not-allowed" : "hover:scale-105 cursor-pointer"
+                  } ${result.type === "mobile" && "border"} border-gray-600 ${
+                    result.type === "mobile"
+                      ? "w-[250px] h-[500px] mx-auto rounded-2xl bg-black p-2 flex items-center justify-center"
+                      : "w-full h-[250px]"
+                  }`}
+                >
+                  <div className="relative w-full h-full">
+                    <img
+                      src={result.image}
+                      alt={`Result ${index + 1}`}
+                      className={`object-cover w-full h-full rounded ${
+                        isPrivate ? "blur-md grayscale opacity-60" : ""
+                      }`}
+                    />
+                    {isPrivate && (
+                      <div className="absolute inset-0 flex items-center justify-center text-white bg-black/60 rounded">
+                        <span className="text-sm font-semibold">Private Image</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })
           ) : (
             <>
               {[1, 2, 3].map((_, index) => (
@@ -289,13 +305,13 @@ const Project = () => {
                   onClick={handlePrev}
                   className="absolute left-4 bg-black/50 px-4 py-4 rounded hover:bg-black cursor-pointer"
                 >
-                  <IoIosArrowBack/>
+                  <IoIosArrowBack />
                 </button>
                 <button
                   onClick={handleNext}
                   className="absolute right-4 bg-black/50 px-4 py-4 rounded hover:bg-black cursor-pointer"
                 >
-                  <IoIosArrowForward/>
+                  <IoIosArrowForward />
                 </button>
               </>
             )}
@@ -307,3 +323,4 @@ const Project = () => {
 };
 
 export default Project;
+

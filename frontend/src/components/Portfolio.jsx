@@ -39,7 +39,13 @@ const Portfolio = () => {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-8">Projects</h2>
+      <h2 className="text-2xl font-bold mb-4">Projects</h2>
+      <p className="text-sm text-gray-400 mb-6">
+        Note: This projects includes both 
+        <span className="font-medium text-white"> PRIVATE </span> and 
+        <span className="font-medium text-white"> PUBLIC </span> projects. 
+        Private projects were built for companies and are protected for data privacy reasons while public are my freelance projects for my client
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, index) => (
           <div
