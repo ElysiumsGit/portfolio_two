@@ -6,11 +6,13 @@ import loginStore from "../assets/store/loginStore.png";
 import landingStore from "../assets/store/landingStore.png";
 import dashboardBusiness from "../assets/businessSuite/dashboard.png";
 import employeeList from "../assets/businessSuite/employeeList.png";
+import BusinessSuiteLogin from "../assets/businessSuite/BusinessSuiteLogin.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import VirtualLabDashboard from "../assets/virtualLab/dashboard.png";
 import VirtualLabAdminList from "../assets/virtualLab/adminList.png";
 import VirtualLabLogin from "../assets/virtualLab/login.png";
+import ProfileVirtualLab from "../assets/virtualLab/profileVirtualLab.png";
 import digestiveWorkSheet1 from "../assets/bioverse/digestive.png";
 import digestiveWorkSheet2 from "../assets/bioverse/digestive2.png";
 import digestiveWorkSheet3 from "../assets/bioverse/digestive3.png";
@@ -32,6 +34,7 @@ const services = [
       "Firebase (Database)",
     ],
     results: [
+      { type: "web", image: BusinessSuiteLogin, visibility: "private" },
       { type: "web", image: dashboardBusiness, visibility: "private" },
       { type: "web", image: employeeList, visibility: "private" },
     ],
@@ -74,7 +77,7 @@ const services = [
       { type: "web", image: VirtualLabLogin, visibility: "public" },
       { type: "web", image: VirtualLabDashboard, visibility: "public"  },
       { type: "web", image: VirtualLabAdminList, visibility: "public"  },
-      { type: "web", image: VirtualLabAdminList, visibility: "public"  },
+      { type: "web", image: ProfileVirtualLab, visibility: "public"  },
     ],
   },
   {
