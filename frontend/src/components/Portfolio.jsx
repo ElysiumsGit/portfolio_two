@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import hrLogo from "../assets/logos/hr.png";
+import storeWatch from "../assets/logos/storewatch.png";
 
 const Portfolio = () => {
   const services = [
     {
       title: "Praetorian Business Suite",
-      image: "",
+      image: hrLogo,
     },
     {
       title: "Store Watch",
-      image: "",
+      image: storeWatch,
     },
     {
       title: "Virtual Lab Cookery",
@@ -53,11 +55,13 @@ const Portfolio = () => {
             className="bg-[#2c2c3c] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
           >
             {service.image ? (
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-64 object-cover"
-              />
+              <div className="w-full h-64 bg-gray-700 flex items-center justify-center text-gray-400 text-sm">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-50 h-50 object-cover"
+                />
+              </div>
             ) : (
               <div className="w-full h-64 bg-gray-700 flex items-center justify-center text-gray-400 text-sm">
                 No Image Available

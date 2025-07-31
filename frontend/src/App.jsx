@@ -47,7 +47,7 @@ function App() {
             }
           `}
         >
-          <LeftProfile />c
+          <LeftProfile />
         </div>
 
         {/* Main content */}
