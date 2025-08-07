@@ -18,6 +18,7 @@ import digestiveWorkSheet2 from "../assets/bioverse/digestive2.png";
 import digestiveWorkSheet3 from "../assets/bioverse/digestive3.png";
 import threeJsModel from "../assets/bioverse/threejsModel.png";
 import bioverseHome from "../assets/bioverse/bioverseHome.png";
+import blog1 from "../assets/magzin/blog.png";
 
 
 const services = [
@@ -98,6 +99,19 @@ const services = [
       { type: "web", image: digestiveWorkSheet2, visibility: "public"  },
       { type: "web", image: digestiveWorkSheet3, visibility: "public"  },
       { type: "web", image: threeJsModel, visibility: "public"  },
+    ],
+  },
+  {
+    title: "Magzin",
+    image: "",
+    description:
+      "Frontend Blogsite",
+    stack: [
+      "React",
+      "Tailwind",
+    ],
+    results: [
+      { type: "web", image: blog1, visibility: "public"  },
     ],
   },
   {

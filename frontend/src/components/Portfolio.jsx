@@ -22,6 +22,10 @@ const Portfolio = () => {
       image: "",
     },
     {
+      title: "Magzin",
+      image: "",
+    },
+    {
       title: "Document Repository",
       image: "",
     },
@@ -33,7 +37,7 @@ const Portfolio = () => {
       title: "HR Haven Mobile",
       image: "",
     },
-     {
+    {
       title: "Portfolio",
       image: "",
     },
