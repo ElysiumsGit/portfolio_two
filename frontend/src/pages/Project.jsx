@@ -104,14 +104,13 @@ const services = [
   {
     title: "Magzin",
     image: "",
-    description:
-      "Frontend Blogsite",
+    description: "Magzin is a modern frontend blog site dedicated to showcasing the latest global trends across fashion, technology, lifestyle, culture, and more. Designed with a clean and responsive UI using React and Tailwind CSS, it offers an engaging platform for readers to stay updated with what's trending around the world.",
     stack: [
       "React",
       "Tailwind",
     ],
     results: [
-      { type: "web", image: blog1, visibility: "public"  },
+      { type: "web", image: blog1, visibility: "public" },
     ],
   },
   {
