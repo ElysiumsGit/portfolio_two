@@ -90,9 +90,9 @@ const LeftProfile = () => {
           <div className="flex justify-between">
             <span className="font-semibold">Province:</span> <span>Daet</span>
           </div>
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <span className="font-semibold">Age:</span> <span>26</span>
-          </div>
+          </div> */}
         </div>
 
         <hr />
