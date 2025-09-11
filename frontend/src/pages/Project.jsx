@@ -7,6 +7,7 @@ import landingStore from "../assets/store/landingStore.png";
 import dashboardBusiness from "../assets/businessSuite/dashboard.png";
 import employeeList from "../assets/businessSuite/employeeList.png";
 import BusinessSuiteLogin from "../assets/businessSuite/BusinessSuiteLogin.png";
+import BusinessSuiteMain from "../assets/businessSuite/Main.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import VirtualLabDashboard from "../assets/virtualLab/dashboard.png";
@@ -36,6 +37,7 @@ const services = [
     ],
     results: [
       { type: "web", image: BusinessSuiteLogin, visibility: "private" },
+      { type: "web", image: BusinessSuiteMain, visibility: "private" },
       { type: "web", image: dashboardBusiness, visibility: "private" },
       { type: "web", image: employeeList, visibility: "private" },
     ],
