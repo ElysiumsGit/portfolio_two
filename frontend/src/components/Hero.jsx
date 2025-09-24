@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { TypeAnimation } from "react-type-animation";
-import Spline from "@splinetool/react-spline";
+// ✅ Lazy load Spline
+const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 const Hero = () => {
   return (
@@ -50,7 +51,9 @@ const Hero = () => {
 
         {/* Right Section - Spline Model */}
         <div className="w-full md:w-1/2 h-[400px] md:h-[600px] flex justify-center">
-          <Spline scene="https://prod.spline.design/YR0CTXrcqoBamJAM/scene.splinecode" />
+          <Suspense fallback={<div className="text-gray-400">Loading 3D...</div>}>
+            <Spline scene="https://prod.spline.design/YR0CTXrcqoBamJAM/scene.splinecode" />
+          </Suspense>
         </div>
       </div>
     </section>
