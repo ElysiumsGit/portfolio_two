@@ -30,7 +30,7 @@ import typescript from "../assets/logos/typescript.svg";
 import express from "../assets/logos/express.svg";
 import dart from "../assets/logos/dart.svg";
 import TechStack from "./TechStack";
-import resume from "../resume/ABANES_JOHN_CARLO_A.pdf";
+import resume from "../resume/ABANES_RESUME.pdf";
 
 const LeftProfile = () => {
   const otherSkills = [

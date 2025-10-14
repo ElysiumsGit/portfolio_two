@@ -34,7 +34,7 @@ const Home = () => {
     <div className="relative w-full overflow-hidden text-white flex flex-col gap-16">
       <Hero />
       <Stats />
-      <Services />
+      <Services />  
       <Portfolio />
       <WorkExperience />
 
