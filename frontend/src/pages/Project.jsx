@@ -21,6 +21,13 @@ import threeJsModel from "../assets/bioverse/threejsModel.png";
 import bioverseHome from "../assets/bioverse/bioverseHome.png";
 import blog1 from "../assets/magzin/blog.png";
 
+import PopinaAccount from "../assets/popina/accountListPopina.jpg";
+import PopinaLogin from "../assets/popina/loginPopina.png";
+import PopinaSeatingPlan from "../assets/popina/seatingPopina.jpg";
+import PopinaFloorLayout from "../assets/popina/floorLayout.jpg";
+import PopinaFloorPlan from "../assets/popina/floorplanPopina.jpg";
+import PopinaDashboard from "../assets/popina/dashboardPopina.png";
+
 
 const services = [
   {
@@ -140,7 +147,14 @@ const services = [
       "NodeJS (Backend)",
       "ExpressJS (Backend Framework)",
     ],
-    results: [],
+    results: [
+      { type: "tablet", image: PopinaLogin, visibility: "public" },
+      { type: "tablet", image: PopinaDashboard, visibility: "public" },
+      { type: "tablet", image: PopinaSeatingPlan, visibility: "public" },
+      { type: "tablet", image: PopinaAccount, visibility: "public" },
+      { type: "tablet", image: PopinaFloorLayout, visibility: "public" },
+      { type: "tablet", image: PopinaFloorPlan, visibility: "public" },
+    ],
   },
   {
     title: "HR Haven Mobile",
@@ -253,42 +267,65 @@ const Project = () => {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-white">Result</h2>
         <div
-          className={`grid gap-6 ${
-            isWeb
-              ? "grid-cols-1 sm:grid-cols-2"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          }`}
-        >
+            className={`grid gap-6 ${
+              project.results.some(r => r.type === "web")
+                ? "grid-cols-1 sm:grid-cols-2"
+                : project.results.some(r => r.type === "tablet")
+                ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
+
           {project.results && project.results.length > 0 ? (
             project.results.map((result, index) => {
               const isPrivate = result.visibility === "private";
               return (
                 <div
                   key={index}
-                  onClick={() => handleImageClick(index)}
-                  className={`overflow-hidden shadow-lg transition-transform transform ${
-                    isPrivate ? "cursor-not-allowed" : "hover:scale-105 cursor-pointer"
-                  } ${result.type === "mobile" && "border"} border-gray-600 ${
-                    result.type === "mobile"
-                      ? "w-[250px] h-[500px] mx-auto rounded-2xl bg-black p-2 flex items-center justify-center"
-                      : "w-full h-[250px]"
-                  }`}
-                >
+                onClick={() => handleImageClick(index)}
+                className={`transition-transform transform ${
+                  isPrivate ? "cursor-not-allowed" : "hover:scale-105 cursor-pointer"
+                } flex justify-center`}
+              >
+                {result.type === "tablet" ? (
+                  <div className="relative w-[320px] h-[220px] sm:w-[480px] sm:h-[320px] md:w-[640px] md:h-[420px] bg-black rounded-3xl border-4 border-gray-700 shadow-2xl flex items-center justify-center">
+                    <img
+                      src={result.image}
+                      alt={`Result ${index + 1}`}
+                      className={`object-contain w-[95%] h-[90%] rounded-lg ${
+                        isPrivate ? "blur-md grayscale opacity-60" : ""
+                      }`}
+                    />
+                    {/* Fake camera notch */}
+                    <div className="absolute top-2 right-1/2 translate-x-1/2 w-8 h-2 bg-gray-800 rounded-full"></div>
+                  </div>
+                ) : result.type === "mobile" ? (
+                  <div className="w-[250px] h-[500px] mx-auto rounded-2xl bg-black p-2 flex items-center justify-center border border-gray-600 shadow-2xl">
+                    <img
+                      src={result.image}
+                      alt={`Result ${index + 1}`}
+                      className={`object-contain w-full h-full rounded ${
+                        isPrivate ? "blur-md grayscale opacity-60" : ""
+                      }`}
+                    />
+                  </div>
+                ) : (
                   <div className="relative w-full h-full">
                     <img
                       src={result.image}
                       alt={`Result ${index + 1}`}
-                      className={`object-cover w-full h-full rounded ${
+                      className={`object-cover w-full h-full ${
                         isPrivate ? "blur-md grayscale opacity-60" : ""
                       }`}
                     />
                     {isPrivate && (
-                      <div className="absolute inset-0 flex items-center justify-center text-white bg-black/60 rounded">
-                        <span className="text-sm font-semibold">Private Image</span>
-                      </div>
-                    )}
+                        <div className="absolute inset-0 flex items-center justify-center text-white bg-black/60 rounded">
+                          <span className="text-sm font-semibold">Private Image</span>
+                        </div>
+                      )}
                   </div>
-                </div>
+                )}
+              </div>
               );
             })
           ) : (

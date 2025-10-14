@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import hrLogo from "../assets/logos/hr.png";
 import storeWatch from "../assets/logos/storewatch.png";
+import popina from "../assets/logos/popinaLogo.png";
 
 const Portfolio = () => {
   const services = [
@@ -31,7 +32,7 @@ const Portfolio = () => {
     },
     {
       title: "Popina",
-      image: "",
+      image: popina,
     },
     {
       title: "HR Haven Mobile",
@@ -59,11 +60,11 @@ const Portfolio = () => {
             className="bg-[#2c2c3c] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
           >
             {service.image ? (
-              <div className="w-full h-64 bg-gray-700 flex items-center justify-center text-gray-400 text-sm">
+              <div className="w-full h-64 bg-gray-700 flex items-center justify-center">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-50 h-50 object-cover"
+                  className="max-w-[150px] max-h-[150px] object-contain"
                 />
               </div>
             ) : (
