@@ -1,14 +1,11 @@
 import React from "react";
-import { Circle } from "rc-progress";
-import {
-  FaCheck,
-  FaLinkedin,
-  FaGithub,
-  FaBehance,
-  FaTwitter,
-} from "react-icons/fa";
-import profile from "../assets/profile-jc.jpg";
+import { FaCheck, FaLinkedin, FaGithub, FaBehance, FaTwitter } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
+import profile from "../assets/profile-jc.jpg";
+import TechStack from "./TechStack";
+import resume from "../resume/ABANES_RESUME.pdf";
+
+// Logos
 import cplusplus from "../assets/logos/cplusplus.svg";
 import css from "../assets/logos/css.svg";
 import electron from "../assets/logos/electron.svg";
@@ -29,48 +26,70 @@ import tailwindcss from "../assets/logos/tailwindcss.svg";
 import typescript from "../assets/logos/typescript.svg";
 import express from "../assets/logos/express.svg";
 import dart from "../assets/logos/dart.svg";
-import TechStack from "./TechStack";
-import resume from "../resume/ABANES_RESUME.pdf";
 
 const LeftProfile = () => {
-  const otherSkills = [
-    "Firebase, Postman, REST API", // Platforms & testing tools
-    "GIT knowledge, GitHub", // Version control
-    "Electron, Flutter", // Cross-platform frameworks
-    "MySQL, MongoDB", // Databases
-    "PHP, Java, C++", // Backend & general-purpose languages
-    "Figma, Photoshop", // Design tools
-  ];
-
-  const techStack = [
-    { name: "C++", image: cplusplus },
-    { name: "CSS", image: css },
-    { name: "Electron", image: electron },
-    { name: "Figma", image: figma },
-    { name: "Firebase", image: firebase },
-    { name: "Flutter", image: flutter },
-    { name: "GitHub", image: github },
+  const frontend = [
     { name: "HTML", image: html },
-    { name: "Java", image: java },
+    { name: "CSS", image: css },
     { name: "JavaScript", image: javascript },
-    { name: "MongoDB", image: mongodb },
-    { name: "MySQL", image: mysql },
-    { name: "Node.js", image: nodejs },
-    { name: "PHP", image: php },
-    { name: "Postman", image: postman },
+    { name: "TypeScript", image: typescript },
     { name: "React", image: react },
     { name: "Tailwind CSS", image: tailwindcss },
-    { name: "TypeScript", image: typescript },
+  ];
+
+  const backend = [
+    { name: "Node.js", image: nodejs },
     { name: "Express", image: express },
+    { name: "PHP", image: php },
+    { name: "Java", image: java },
+    { name: "C++", image: cplusplus },
+  ];
+
+  const databases = [
+    { name: "MongoDB", image: mongodb },
+    { name: "MySQL", image: mysql },
+    { name: "Firebase", image: firebase },
+  ];
+
+  const crossPlatform = [
+    { name: "Flutter", image: flutter },
+    { name: "Electron", image: electron },
     { name: "Dart", image: dart },
   ];
 
+  const tools = [
+    { name: "GitHub", image: github },
+    { name: "Postman", image: postman },
+    { name: "Figma", image: figma },
+  ];
+
+  const otherSkills = [
+    "REST API Integration",
+    "Version Control (Git/GitHub)",
+    "UI/UX Design with Figma",
+    "Cross-Platform Development",
+    "Agile Workflow & Collaboration",
+  ];
+
+  // ✅ Reusable tech category renderer
+  const renderCategory = (title, items) => (
+    <div className="space-y-2">
+      <h2 className="text-xs font-semibold text-gray-300 uppercase">{title}</h2>
+      <div className="flex flex-wrap gap-4 justify-start">
+        {items.map((tech, i) => (
+          <TechStack key={i} tech={tech} />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex flex-col h-full w-[270px] bg-[#1E1E2F] text-white">
+      {/* Top Section */}
       <section className="bg-foreground-1 h-[220px] flex flex-col items-center justify-center gap-4">
         <div className="border border-white rounded-full">
-          <div className="rounded-full bg-gray-600 w-[100px] h-[100px]">
-            <img src={profile} alt="" className="rounded-full" />
+          <div className="rounded-full bg-gray-600 w-[100px] h-[100px] overflow-hidden">
+            <img src={profile} alt="profile" className="rounded-full w-full h-full object-cover" />
           </div>
         </div>
 
@@ -80,30 +99,27 @@ const LeftProfile = () => {
         </div>
       </section>
 
-      {/* Scrollable Middle Section */}
       <section className="flex-1 overflow-y-auto bg-foreground-2 px-6 py-6 text-sm space-y-6 scroll-hidden">
         <div>
           <div className="flex justify-between">
-            <span className="font-semibold">Residence:</span>{" "}
-            <span>Philippines</span>
+            <span className="font-semibold">Residence:</span> <span>Philippines</span>
           </div>
           <div className="flex justify-between">
             <span className="font-semibold">Province:</span> <span>Daet</span>
           </div>
-          {/* <div className="flex justify-between">
-            <span className="font-semibold">Age:</span> <span>26</span>
-          </div> */}
         </div>
 
         <hr />
 
-        <div className="flex flex-wrap gap-4 justify-center">
-          {techStack.map((tech, index) => (
-            <TechStack key={index} tech={tech} />
-          ))}
-        </div>
+        {renderCategory("Frontend", frontend)}
+        {renderCategory("Backend", backend)}
+        {renderCategory("Databases", databases)}
+        {renderCategory("Cross-Platform", crossPlatform)}
+        {renderCategory("Tools & Design", tools)}
 
+        {/* Other Skills */}
         <div className="space-y-2 text-xs">
+          <h2 className="text-xs font-semibold text-gray-300 uppercase">Other Skills</h2>
           {otherSkills.map((tool, i) => (
             <div key={i} className="flex items-center gap-2">
               <FaCheck className="color-primary text-[10px]" />
@@ -114,6 +130,7 @@ const LeftProfile = () => {
 
         <hr />
 
+        {/* Resume Download */}
         <a
           href={resume}
           download
