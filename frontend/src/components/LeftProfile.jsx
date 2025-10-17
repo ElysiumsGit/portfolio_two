@@ -26,6 +26,10 @@ import tailwindcss from "../assets/logos/tailwindcss.svg";
 import typescript from "../assets/logos/typescript.svg";
 import express from "../assets/logos/express.svg";
 import dart from "../assets/logos/dart.svg";
+import nestjs from "../assets/logos/nestjs.svg";
+import nextjs from "../assets/logos/nextjs.svg";
+import trello from "../assets/logos/trello.svg";
+import jira from "../assets/logos/jira.svg";
 
 const LeftProfile = () => {
   const frontend = [
@@ -35,6 +39,7 @@ const LeftProfile = () => {
     { name: "TypeScript", image: typescript },
     { name: "React", image: react },
     { name: "Tailwind CSS", image: tailwindcss },
+    { name: "NextJs", image: nextjs },
   ];
 
   const backend = [
@@ -43,6 +48,8 @@ const LeftProfile = () => {
     { name: "PHP", image: php },
     { name: "Java", image: java },
     { name: "C++", image: cplusplus },
+    { name: "NestJs", image: nestjs },
+    { name: "NextJs", image: nextjs },
   ];
 
   const databases = [
@@ -59,6 +66,8 @@ const LeftProfile = () => {
 
   const tools = [
     { name: "GitHub", image: github },
+    { name: "Trello", image: trello },
+    { name: "Jira", image: jira },
     { name: "Postman", image: postman },
     { name: "Figma", image: figma },
   ];
